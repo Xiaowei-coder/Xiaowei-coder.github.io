@@ -1,0 +1,173 @@
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+  <title>Two Stage Learning Speech Enhancement Method Based on Amplitude and Phase Optimization</title>
+  <link rel="stylesheet" type="text/css" href="./stylesheets/github-light.css">
+</head>
+
+<body>
+  <article>
+    <header>
+      <h1>Samples from "基于幅度和相位优化的两阶段渐近学习单通道语音增强方法" </h1>
+    </header>
+  </article>
+
+  <div><b>作者:</b>卿朝进，付小伟，何林锶
+  </div>  <div><b>摘要部分内容:</b>
+	现有的深度语音增强方法大多通过预测掩模或实虚部的方式优化相位，但其语音增强性能提升有限且单一网络难以同时对幅度和相位同时建模。为进一步优化相位，提出了一种基于幅度和相位优化的两阶段渐近学习单通道语音增强方法。
+  </div>
+  <hr style="height:1px;border:none;border-top:1px solid #555555; width:130%">
+  <h2>Part1: DNS test set</h2>
+  <h3>Samples on non reverberation set</h3>
+  <style type="text/css">
+    .tg {
+      border-collapse: collapse;
+      border-spacing: 0;
+    }
+
+    .tg td {
+      border-bottom-width: 1px;
+      border-color: black;
+      border-style: solid;
+      border-top-width: 1px;
+      border-width: 0px;
+      font-family: Arial, sans-serif;
+      font-size: 14px;
+      overflow: hidden;
+      padding: 10px 5px;
+      word-break: normal;
+    }
+
+    .tg th {
+      border-bottom-width: 1px;
+      border-color: black;
+      border-style: solid;
+      border-top-width: 1px;
+      border-width: 0px;
+      font-family: Arial, sans-serif;
+      font-size: 14px;
+      font-weight: normal;
+      overflow: hidden;
+      padding: 10px 5px;
+      word-break: normal;
+    }
+
+    .tg .tg-c3ow {
+      border-color: inherit;
+      font-weight: bold;
+      text-align: center;
+      vertical-align: top
+    }
+
+    .tg .tg-0pky {
+      border-color: inherit;
+      text-align: left;
+      vertical-align: top
+    }
+
+    .tg .tg-pcvp {
+      border-color: inherit;
+      text-align: left;
+      vertical-align: top
+    }
+
+    .tg .tg-ihkz {
+      border-color: inherit;
+      text-align: center;
+      vertical-align: top
+    }
+
+    .tg .tg-7kms {
+      border-color: inherit;
+      font-family: Arial, Helvetica, sans-serif !important;
+      ;
+      text-align: center;
+      vertical-align: top
+    }
+  </style>
+  <table class="tg" style="undefined;table-layout: fixed; width: 493px">
+    <colgroup>
+      <col style="width: 85px">
+      <col style="width: 300px">
+      <col style="width: 300px">
+      <col style="width: 300px">
+      <col style="width: 300px">
+      <col style="width: 300px">
+    </colgroup>
+    <thead>
+      <tr>
+        <th class="tg-c3ow">Model</th>
+        <th class="tg-c3ow">Sample 1</th>
+        <th class="tg-c3ow">Sample 2</th>
+        <th class="tg-c3ow">Sample 3</th>
+        <th class="tg-c3ow">Sample 4</th>
+        <th class="tg-c3ow">Sample 5</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="tg-0pky">Noisy</td>
+		<td class="tg-ihkz"><audio controls=""><source src="./samples/simu/no_reverb/noisy/clnsp246_door_83878_0_snr15_tl-26_fileid_213.wav"></audio></td>
+		<td class="tg-ihkz"><audio controls=""><source src="./samples/simu/no_reverb/noisy/clnsp241_washer_235366_2_snr17_tl-24_fileid_2.wav"></audio></td>
+		<td class="tg-ihkz"><audio controls=""><source src="./samples/simu/no_reverb/noisy/clnsp198_bus_56903_0_snr0_tl-32_fileid_101.wav"></audio></td>
+		<td class="tg-ihkz"><audio controls=""><source src="./samples/simu/no_reverb/noisy/clnsp157_water_125964_2_snr9_tl-32_fileid_243.wav"></audio></td>
+		<td class="tg-ihkz"><audio controls=""><source src="./samples/simu/no_reverb/noisy/clnsp213_bhxP0WJ17ko_snr9_tl-33_fileid_250.wav"></audio></td>
+	  </tr>
+	  
+      <tr>
+	    <td class="tg-0pky">Clean</td>
+		<td class="tg-ihkz"><audio controls=""><source src="./samples/simu/no_reverb/clean/clnsp246_door_83878_0_snr15_tl-26_fileid_213.wav"></audio></td>
+		<td class="tg-ihkz"><audio controls=""><source src="./samples/simu/no_reverb/clean/clnsp241_washer_235366_2_snr17_tl-24_fileid_2.wav"></audio></td>
+		<td class="tg-ihkz"><audio controls=""><source src="./samples/simu/no_reverb/clean/clnsp198_bus_56903_0_snr0_tl-32_fileid_101.wav"></audio></td>
+		<td class="tg-ihkz"><audio controls=""><source src="./samples/simu/no_reverb/clean/clnsp157_water_125964_2_snr9_tl-32_fileid_243.wav"></audio></td>
+		<td class="tg-ihkz"><audio controls=""><source src="./samples/simu/no_reverb/clean/clnsp213_bhxP0WJ17ko_snr9_tl-33_fileid_250.wav"></audio></td>
+	  </tr>
+	  
+      <tr>
+        <td class="tg-pcvp">DCCRN</td>
+		<td class="tg-ihkz"><audio controls=""><source src="./samples/simu/no_reverb/conv2d_non_causal/clnsp246_door_83878_0_snr15_tl-26_fileid_213.wav"></audio></td>
+		<td class="tg-ihkz"><audio controls=""><source src="./samples/simu/no_reverb/conv2d_non_causal/clnsp241_washer_235366_2_snr17_tl-24_fileid_2.wav"></audio></td>
+		<td class="tg-ihkz"><audio controls=""><source src="./samples/simu/no_reverb/conv2d_non_causal/clnsp198_bus_56903_0_snr0_tl-32_fileid_101.wav"></audio></td>
+		<td class="tg-ihkz"><audio controls=""><source src="./samples/simu/no_reverb/conv2d_non_causal/clnsp157_water_125964_2_snr9_tl-32_fileid_243.wav"></audio></td>
+		<td class="tg-ihkz"><audio controls=""><source src="./samples/simu/no_reverb/conv2d_non_causal/clnsp213_bhxP0WJ17ko_snr9_tl-33_fileid_250.wav"></audio></td>
+	  </tr>
+      <tr>
+        <td class="tg-pcvp">Subband DCCRN</td>	
+		<td class="tg-ihkz"><audio controls=""><source src="./samples/simu/no_reverb/conv2d_multiband/clnsp246_door_83878_0_snr15_tl-26_fileid_213.wav"></audio></td>
+		<td class="tg-ihkz"><audio controls=""><source src="./samples/simu/no_reverb/conv2d_multiband/clnsp241_washer_235366_2_snr17_tl-24_fileid_2.wav"></audio></td>
+		<td class="tg-ihkz"><audio controls=""><source src="./samples/simu/no_reverb/conv2d_multiband/clnsp198_bus_56903_0_snr0_tl-32_fileid_101.wav"></audio></td>
+		<td class="tg-ihkz"><audio controls=""><source src="./samples/simu/no_reverb/conv2d_multiband/clnsp157_water_125964_2_snr9_tl-32_fileid_243.wav"></audio></td>
+		<td class="tg-ihkz"><audio controls=""><source src="./samples/simu/no_reverb/conv2d_multiband/clnsp213_bhxP0WJ17ko_snr9_tl-33_fileid_250.wav"></audio></td>
+      </tr>
+      <tr>
+        <td class="tg-pcvp">+Complex TF-LSTM</td>		
+		<td class="tg-ihkz"><audio controls=""><source src="./samples/simu/no_reverb/conv2d_multiband_complex_dplstm_v2/clnsp246_door_83878_0_snr15_tl-26_fileid_213.wav"></audio></td>
+		<td class="tg-ihkz"><audio controls=""><source src="./samples/simu/no_reverb/conv2d_multiband_complex_dplstm_v2/clnsp241_washer_235366_2_snr17_tl-24_fileid_2.wav"></audio></td>
+		<td class="tg-ihkz"><audio controls=""><source src="./samples/simu/no_reverb/conv2d_multiband_complex_dplstm_v2/clnsp198_bus_56903_0_snr0_tl-32_fileid_101.wav"></audio></td>
+		<td class="tg-ihkz"><audio controls=""><source src="./samples/simu/no_reverb/conv2d_multiband_complex_dplstm_v2/clnsp157_water_125964_2_snr9_tl-32_fileid_243.wav"></audio></td>
+		<td class="tg-ihkz"><audio controls=""><source src="./samples/simu/no_reverb/conv2d_multiband_complex_dplstm_v2/clnsp213_bhxP0WJ17ko_snr9_tl-33_fileid_250.wav"></audio></td>
+      </tr>
+      <tr>
+        <td class="tg-pcvp">+Convolution Pathway</td>
+		<td class="tg-ihkz"><audio controls=""><source src="./samples/simu/no_reverb/conv2d_multiband_complex_dplstm_skipcnn/clnsp246_door_83878_0_snr15_tl-26_fileid_213.wav"></audio></td>
+		<td class="tg-ihkz"><audio controls=""><source src="./samples/simu/no_reverb/conv2d_multiband_complex_dplstm_skipcnn/clnsp241_washer_235366_2_snr17_tl-24_fileid_2.wav"></audio></td>
+		<td class="tg-ihkz"><audio controls=""><source src="./samples/simu/no_reverb/conv2d_multiband_complex_dplstm_skipcnn/clnsp198_bus_56903_0_snr0_tl-32_fileid_101.wav"></audio></td>
+		<td class="tg-ihkz"><audio controls=""><source src="./samples/simu/no_reverb/conv2d_multiband_complex_dplstm_skipcnn/clnsp157_water_125964_2_snr9_tl-32_fileid_243.wav"></audio></td>
+		<td class="tg-ihkz"><audio controls=""><source src="./samples/simu/no_reverb/conv2d_multiband_complex_dplstm_skipcnn/clnsp213_bhxP0WJ17ko_snr9_tl-33_fileid_250.wav"></audio></td>
+	  </tr>
+	  <tr>
+        <td class="tg-pcvp">+Post-processing</td>
+		<td class="tg-ihkz"><audio controls=""><source src="./samples/simu/no_reverb/conv2d_multiband_complex_dplstm_skipcnn_snr_esti/clnsp246_door_83878_0_snr15_tl-26_fileid_213.wav"></audio></td>
+		<td class="tg-ihkz"><audio controls=""><source src="./samples/simu/no_reverb/conv2d_multiband_complex_dplstm_skipcnn_snr_esti/clnsp241_washer_235366_2_snr17_tl-24_fileid_2.wav"></audio></td>
+		<td class="tg-ihkz"><audio controls=""><source src="./samples/simu/no_reverb/conv2d_multiband_complex_dplstm_skipcnn_snr_esti/clnsp198_bus_56903_0_snr0_tl-32_fileid_101.wav"></audio></td>
+		<td class="tg-ihkz"><audio controls=""><source src="./samples/simu/no_reverb/conv2d_multiband_complex_dplstm_skipcnn_snr_esti/clnsp157_water_125964_2_snr9_tl-32_fileid_243.wav"></audio></td>
+		<td class="tg-ihkz"><audio controls=""><source src="./samples/simu/no_reverb/conv2d_multiband_complex_dplstm_skipcnn_snr_esti/clnsp213_bhxP0WJ17ko_snr9_tl-33_fileid_250.wav"></audio></td>
+	  </tr>
+    </tbody>
+  </table>
+  <hr style="height:1px;border:none;border-top:1px solid #555555; width:130%">
+
+</html>
+
